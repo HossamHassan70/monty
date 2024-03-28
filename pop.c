@@ -17,15 +17,15 @@
 
 void f_pop(stack_t **head, unsigned int counter)
 {
-    // Check if stack is empty
+    stack_t *temp = *head;
+    /* Check if stack is empty */
     if (*head == NULL)
     {
         fprintf(stderr, "L%d: can't pop an empty stack\n", counter);
         exit(EXIT_FAILURE);
     }
 
-    // Remove the top element
-    stack_t *temp = *head;
+    /* Remove the top element */
     *head = temp->next;
     free(temp);
 }

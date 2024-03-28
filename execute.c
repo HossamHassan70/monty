@@ -43,7 +43,7 @@ int execute(char *content, stack_t **stack, unsigned int counter, FILE *file)
 
     /* Tokenize content to extract opcode */
     char *op = strtok(content, " \n\t");
-    if (op && op[0] == '#')  // Ignore comments
+    if (op && op[0] == '#')
         return 0;
 
     /* Extract argument if any */

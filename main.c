@@ -1,4 +1,5 @@
 #include "monty.h"
+#include <stdio.h>
 bus_t bus = {NULL, NULL, NULL, 0};
 /**
  * Function: main
@@ -18,6 +19,7 @@ int main(int argc, char *argv[])
     char *line = NULL;
     size_t len = 0;
     ssize_t read;
+    unsigned int line_number = 0;
 
     if (argc != 2)
     {
@@ -31,7 +33,6 @@ int main(int argc, char *argv[])
         return EXIT_FAILURE;
     }
 
-    unsigned int line_number = 0;
     while ((read = getline(&line, &len, file)) != -1)
     {
         line_number++;

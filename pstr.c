@@ -16,15 +16,16 @@
 
 void f_pstr(stack_t **head, unsigned int counter)
 {
-    // Prevent unused variable warning
+stack_t *current = *head;
+    /* Prevent unused variable warning */
     (void)counter;
 
-    // Traverse the stack and print characters until a non-printable ASCII character or end of stack is encountered
-    for (stack_t *current = *head; current != NULL && current->n > 0 && current->n <= 127; current = current->next)
+    /* Traverse the stack and print characters until a non-printable ASCII character or end of stack is encountered */
+    for (; current != NULL && current->n > 0 && current->n <= 127; current = current->next)
     {
         printf("%c", current->n);
     }
 
-    // Print newline character after printing the string
+    /* Print newline character after printing the string */
     printf("\n");
 }

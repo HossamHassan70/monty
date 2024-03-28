@@ -16,13 +16,13 @@
 
 void f_pint(stack_t **head, unsigned int counter)
 {
-    // Check if stack is empty
+    /* Check if stack is empty */
     if (*head == NULL)
     {
         fprintf(stderr, "L%u: can't pint, stack empty\n", counter);
         exit(EXIT_FAILURE);
     }
 
-    // Print value at the top of the stack
+    /* Print value at the top of the stack */
     printf("%d\n", (*head)->n);
 }
