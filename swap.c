@@ -15,7 +15,8 @@
 
 void f_swap(stack_t **head, unsigned int counter)
 {
-    // Check if stack has at least two elements
+    int temp = (*head)->n;
+    /* Check if stack has at least two elements */
     if (*head == NULL || (*head)->next == NULL)
     {
         fprintf(stderr, "L%d: can't swap, stack too short\n", counter);
@@ -25,8 +26,7 @@ void f_swap(stack_t **head, unsigned int counter)
         exit(EXIT_FAILURE);
     }
 
-    // Swap the values of the top two elements
-    int temp = (*head)->n;
+    /* Swap the values of the top two elements */
     (*head)->n = (*head)->next->n;
     (*head)->next->n = temp;
 }

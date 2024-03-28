@@ -16,16 +16,16 @@
 
 void f_mul(stack_t **head, unsigned int counter)
 {
-    // Check if stack has at least two elements
+    /* Check if stack has at least two elements */
     if (*head == NULL || (*head)->next == NULL)
     {
         fprintf(stderr, "L%d: can't mul, stack too short\n", counter);
         exit(EXIT_FAILURE);
     }
 
-    // Multiply the top two elements
+    /* Multiply the top two elements */
     (*head)->next->n *= (*head)->n;
 
-    // Remove top element
+    /* Remove top element */
     f_pop(head, counter);
 }

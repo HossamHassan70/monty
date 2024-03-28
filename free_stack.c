@@ -15,16 +15,16 @@
 
 void free_stack(stack_t *head)
 {
-    // Traverse the list and free each node
+    /* Traverse the list and free each node */
     while (head != NULL)
     {
-        // Keep track of the next node to prevent losing reference
+        /* Keep track of the next node to prevent losing reference */
         stack_t *next_node = head->next;
 
-        // Free the current node
+        /* Free the current node */
         free(head);
 
-        // Move to the next node
+        /* Move to the next node */
         head = next_node;
     }
 }

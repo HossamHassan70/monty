@@ -20,7 +20,8 @@
 
 int execute(char *content, stack_t **stack, unsigned int counter, FILE *file)
 {
-    // Array of instruction opcodes and their corresponding functions
+    unsigned int i = 0;
+    /* Array of instruction opcodes and their corresponding functions */
     instruction_t opst[] = {
         {"push", f_push}, {"pall", f_pall}, {"pint", f_pint},
         {"pop", f_pop},
@@ -39,29 +40,28 @@ int execute(char *content, stack_t **stack, unsigned int counter, FILE *file)
         {"stack", f_stack},
         {NULL, NULL}
     };
-    
-    // Tokenize content to extract opcode
+
+    /* Tokenize content to extract opcode */
     char *op = strtok(content, " \n\t");
     if (op && op[0] == '#')  // Ignore comments
         return 0;
-    
-    // Extract argument if any
+
+    /* Extract argument if any */
     bus.arg = strtok(NULL, " \n\t");
 
-    // Search for the opcode in the instruction table
-    unsigned int i = 0;
+    /* Search for the opcode in the instruction table */
     while (opst[i].opcode && op)
     {
         if (strcmp(op, opst[i].opcode) == 0)
         {
-            // Execute the corresponding function
+            /* Execute the corresponding function */
             opst[i].f(stack, counter);
-            return 0;  // Successful execution
+            return 0;  /* Successful execution */
         }
         i++;
     }
 
-    // If opcode is not found, print error message and exit
+    /* If opcode is not found, print error message and exit */
     if (op && opst[i].opcode == NULL)
     {
         fprintf(stderr, "L%d: unknown instruction %s\n", counter, op);
@@ -71,5 +71,5 @@ int execute(char *content, stack_t **stack, unsigned int counter, FILE *file)
         exit(EXIT_FAILURE);
     }
 
-    return 1;  // Opcode not found
+    return 1;  /* Opcode not found */
 }

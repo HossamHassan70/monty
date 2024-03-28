@@ -17,7 +17,9 @@
 
 void f_sub(stack_t **head, unsigned int counter)
 {
-    // Check if stack has at least two elements
+    int result = (*head)->next->n - (*head)->n;
+    stack_t *temp = *head;
+    /* Check if stack has at least two elements */
     if (*head == NULL || (*head)->next == NULL)
     {
         fprintf(stderr, "L%d: can't sub, stack too short\n", counter);
@@ -27,14 +29,12 @@ void f_sub(stack_t **head, unsigned int counter)
         exit(EXIT_FAILURE);
     }
 
-    // Calculate the subtraction result
-    int result = (*head)->next->n - (*head)->n;
+    /* Calculate the subtraction result */
 
-    // Remove the top element and update the stack
-    stack_t *temp = *head;
+    /* Remove the top element and update the stack */
     *head = (*head)->next;
     free(temp);
 
-    // Update the value of the new top element
+    /* Update the value of the new top element */
     (*head)->n = result;
 }

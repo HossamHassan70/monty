@@ -16,20 +16,20 @@
 
 void f_rotl(stack_t **head, __attribute__((unused)) unsigned int counter)
 {
-    // Check if stack is empty or has only one element
+    stack_t *last = *head;
+    /* Check if stack is empty or has only one element */
     if (*head == NULL || (*head)->next == NULL)
     {
         return;
     }
 
-    // Traverse to the last node of the stack
-    stack_t *last = *head;
+    /* Traverse to the last node of the stack */
     while (last->next != NULL)
     {
         last = last->next;
     }
 
-    // Rotate the stack by moving the head node to the end
+    /* Rotate the stack by moving the head node to the end */
     last->next = *head;
     *head = (*head)->next;
     (*head)->prev = NULL;

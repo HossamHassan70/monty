@@ -16,11 +16,13 @@
 
 void f_pall(stack_t **head, unsigned int counter)
 {
-    // Prevent unused variable warning
+    stack_t *current = *head;
+
+    /* Prevent unused variable warning */
     (void)counter;
 
-    // Traverse the stack and print each element
-    for (stack_t *current = *head; current != NULL; current = current->next)
+    /* Traverse the stack and print each element */
+    for (; current != NULL; current = current->next)
     {
         printf("%d\n", current->n);
     }

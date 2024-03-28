@@ -18,7 +18,7 @@
 
 void addnode(stack_t **head, int n)
 {
-    // Create a new node
+    /* Create a new node */
     stack_t *new_node = malloc(sizeof(stack_t));
     if (new_node == NULL)
     {
@@ -26,17 +26,17 @@ void addnode(stack_t **head, int n)
         exit(EXIT_FAILURE);
     }
 
-    // Initialize the new node
+    /* Initialize the new node */
     new_node->n = n;
     new_node->prev = NULL;
 
-    // Update pointers
+    /* Update pointers */
     if (*head != NULL)
     {
         (*head)->prev = new_node;
     }
     new_node->next = *head;
 
-    // Update head pointer
+    /* Update head pointer */
     *head = new_node;
 }

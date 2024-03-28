@@ -18,23 +18,23 @@
 
 void f_mod(stack_t **head, unsigned int counter)
 {
-    // Check if stack has at least two elements
+    /* Check if stack has at least two elements */
     if (*head == NULL || (*head)->next == NULL)
     {
         fprintf(stderr, "L%d: can't mod, stack too short\n", counter);
         exit(EXIT_FAILURE);
     }
 
-    // Check for division by zero
+    /* Check for division by zero */
     if ((*head)->n == 0)
     {
         fprintf(stderr, "L%d: division by zero\n", counter);
         exit(EXIT_FAILURE);
     }
 
-    // Compute the rest of division
+    /* Compute the rest of division */
     (*head)->next->n %= (*head)->n;
 
-    // Remove top element
+    /* Remove top element */
     f_pop(head, counter);
 }

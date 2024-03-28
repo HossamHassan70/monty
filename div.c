@@ -19,23 +19,23 @@
 
 void f_div(stack_t **head, unsigned int counter)
 {
-    // Check if stack has at least two elements
+    /* Check if stack has at least two elements */
     if (*head == NULL || (*head)->next == NULL)
     {
         fprintf(stderr, "L%d: can't div, stack too short\n", counter);
         exit(EXIT_FAILURE);
     }
 
-    // Check for division by zero
+    /* Check for division by zero  */
     if ((*head)->n == 0)
     {
         fprintf(stderr, "L%d: division by zero\n", counter);
         exit(EXIT_FAILURE);
     }
 
-    // Perform division
+    /* Perform division */
     (*head)->next->n /= (*head)->n;
 
-    // Remove top element
+    /* Remove top element */
     f_pop(head, counter);
 }

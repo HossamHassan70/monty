@@ -13,11 +13,11 @@
  */
 void f_queue(stack_t **head, unsigned int counter)
 {
-    // Prevent unused variable warnings
+    /* Prevent unused variable warnings */
     (void)head;
     (void)counter;
 
-    // Set stack mode to FIFO (queue)
+    /* Set stack mode to FIFO (queue) */
     bus.lifi = 1;
 }
 
@@ -36,7 +36,7 @@ void f_queue(stack_t **head, unsigned int counter)
  */
 void addqueue(stack_t **head, int n)
 {
-    // Allocate memory for new node
+    stack_t *tail = *head;    /* Allocate memory for new node */
     stack_t *new_node = malloc(sizeof(stack_t));
     if (new_node == NULL)
     {
@@ -44,26 +44,25 @@ void addqueue(stack_t **head, int n)
         return;
     }
 
-    // Initialize new node
+    /* Initialize new node */
     new_node->n = n;
     new_node->next = NULL;
     new_node->prev = NULL;
 
-    // If stack is empty, set new node as head
+    /* If stack is empty, set new node as head */
     if (*head == NULL)
     {
         *head = new_node;
         return;
     }
 
-    // Traverse the stack to find the tail
-    stack_t *tail = *head;
+    /* Traverse the stack to find the tail */
     while (tail->next != NULL)
     {
         tail = tail->next;
     }
 
-    // Append new node to the tail
+    /* Append new node to the tail */
     tail->next = new_node;
     new_node->prev = tail;
 }
