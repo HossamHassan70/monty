@@ -2,6 +2,7 @@
 #include <stdio.h>
 
 bus_t bus = {NULL, NULL, NULL, 0};
+ssize_t getline(char **lineptr, size_t *n, FILE *stream);
 
 int main(int argc, char *argv[]) {
     FILE *file = fopen(argv[1], "r");
